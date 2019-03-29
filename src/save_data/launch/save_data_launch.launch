@@ -1,0 +1,3 @@
+<launch>
+   <node name="save_gps" pkg="save_data" type="save_gps"/>
+</launch>
