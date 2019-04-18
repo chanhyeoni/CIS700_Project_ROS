@@ -1,5 +1,5 @@
 <launch>
 	<include file="$(find dataspeed_dbw_gazebo_demo)/launch/lane_keep_demo.launch" />
 	<include file="$(find save_data)/launch/save_data_launch.launch" />
-
+	<include file="$(find attack_module)/launch/attack_module_launch.launch" />
 </launch>
