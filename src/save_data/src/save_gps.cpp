@@ -10,12 +10,14 @@ rosbag::Bag bag("gps.bag", rosbag::bagmode::Write);
 
 save_data::GPS data;
 
+int label;
+
 void gpsCallback(const gps_common::GPSFix msg)
 {  
   data.latitude = msg.latitude;
   data.longitude = msg.longitude;
   // write to the bag file
-  bag.write("gps_bag", ros::Time::now(), data);
+  bag.write("gps", ros::Time::now(), data);
   
 }
 
@@ -28,7 +30,7 @@ int main(int argc, char **argv)
 
   ros::NodeHandle n;
 
-  ros::Subscriber sub = n.subscribe("/vehicle/perfect_gps/enhanced_fix", 1000, gpsCallback);
+  ros::Subscriber sub_normal = n.subscribe("/vehicle/perfect_gps/enhanced_fix", 1000, gpsCallback);
 
   ros::spin();
 
