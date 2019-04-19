@@ -15,10 +15,10 @@ publish_rate : 5
 outlier_queue_size: 100
 sensor_attack_type : "similar_values"
 similar_values_attack:
-	normal_lat_min_value : 44.999
-	normal_lat_max_value : 45.000
-	normal_long_min_value : -81.00
-	normal_long_max_value : -80.99
-	anomaly_data_range : 5
+ normal_lat_min_value : 44.999
+ normal_lat_max_value : 45.000
+ normal_long_min_value : -81.00
+ normal_long_max_value : -80.99
+ anomaly_data_range : 5
 
 
