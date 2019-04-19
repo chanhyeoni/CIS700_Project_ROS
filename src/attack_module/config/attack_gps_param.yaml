@@ -11,7 +11,7 @@
 #		- can change the values by adding/substracting value specified by anomaly_data_range
 #	
 
-publish_rate : 5
+publish_rate : 0.1
 outlier_queue_size: 100
 sensor_attack_type : "similar_values"
 similar_values_attack:

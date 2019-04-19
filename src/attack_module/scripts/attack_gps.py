@@ -45,6 +45,7 @@ import random
 
 from std_msgs.msg import String
 from gps_common.msg import GPSFix
+from gps_common.msg import GPSStatus
 
 ''' define necessary global variables '''
 normal_data = GPSFix()	
@@ -59,7 +60,6 @@ anomaly_data_range = 0
 '''
 def get_normal_GPSFix_callback(data):
 	normal_data = data
-
 
 
 ''' 
@@ -80,7 +80,8 @@ def create_anomalous_GPSFix(command, data):
 	else:
 		data.latitude = float('inf')
 		data.longitude = float('inf')
-		
+	
+	data.status.status =-1
 	return data
 	
 
@@ -101,7 +102,7 @@ if __name__ == '__main__':
 		normal_long_max_value = rospy.get_param('/attack_gps/similar_values_attack/normal_long_max_value')
 		anomaly_data_range = rospy.get_param('/attack_gps/similar_values_attack/anomaly_data_range')
 		
-    	try:
+	try:
 		# create publisher and subscriber
 		# create pub/sub of Dataspeed's topic (/vehicle/perfect_gps/enhanced_fix)
 		pub_original = rospy.Publisher('/vehicle/perfect_gps/enhanced_fix', GPSFix, queue_size=outlier_queue_size)
@@ -115,5 +116,3 @@ if __name__ == '__main__':
 			rate.sleep()
 	except rospy.ROSInterruptException:
 		pass
-
-

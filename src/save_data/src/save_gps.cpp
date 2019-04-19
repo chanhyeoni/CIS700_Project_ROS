@@ -5,6 +5,7 @@
 #include "gps_common/GPSStatus.h"
 #include <rosbag/bag.h>
 #include "save_data/GPS.h"
+#include <sstream>
 
 rosbag::Bag bag("gps.bag", rosbag::bagmode::Write);
 
@@ -16,6 +17,13 @@ void gpsCallback(const gps_common::GPSFix msg)
 {  
   data.latitude = msg.latitude;
   data.longitude = msg.longitude;
+
+  if (msg.status.status != -1){ 
+    data.label = 1;
+  }else{ 
+    data.label = -1;
+  }
+  
   // write to the bag file
   bag.write("gps", ros::Time::now(), data);
   
