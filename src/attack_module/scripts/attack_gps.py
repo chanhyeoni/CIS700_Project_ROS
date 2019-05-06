@@ -12,7 +12,6 @@ import random
 
 from std_msgs.msg import String
 from gps_common.msg import GPSFix
-from gps_common.msg import GPSStatus
 
 ''' define necessary global variables '''
 normal_data = GPSFix()	

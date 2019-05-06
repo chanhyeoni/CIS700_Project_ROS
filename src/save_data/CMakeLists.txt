@@ -136,7 +136,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(save_gps src/save_gps.cpp)
+add_executable(save_data src/save_data.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -150,9 +150,9 @@ add_executable(save_gps src/save_gps.cpp)
 
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(save_gps ${catkin_LIBRARIES})
+target_link_libraries(save_data ${catkin_LIBRARIES})
 
-add_dependencies(save_gps save_data_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
+add_dependencies(save_data save_data_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
 
 #############
 ## Install ##
