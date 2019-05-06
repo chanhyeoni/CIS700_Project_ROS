@@ -39,20 +39,20 @@ def get_normal_GPSFix_callback(data):
 def create_anomalous_GPSFix(command):
 	# copy 
 	if (command == 'zero_lat_long'):
-		data.latitude = 0
-		data.longitude = 0
+		normal_data.latitude = 0
+		normal_data.longitude = 0
 	elif (command == 'similar_values'):
 		anomaly_data_range = rospy.get_param('/attack_gps/similar_values_attack/anomaly_data_range')
 		# the only way to generate randome values that are (+)/(-) range of anomaly_data_range is
 		# to use python's random library
-		data.latitude = random.uniform(normal_lat_min_value-anomaly_data_range, normal_lat_max_value+anomaly_data_range)
-		data.longitude = random.uniform(normal_long_min_value-anomaly_data_range, normal_long_max_value+anomaly_data_range)
+		normal_data.latitude = random.uniform(normal_lat_min_value-anomaly_data_range, normal_lat_max_value+anomaly_data_range)
+		normal_data.longitude = random.uniform(normal_long_min_value-anomaly_data_range, normal_long_max_value+anomaly_data_range)
 	else:
-		data.latitude = float('inf')
-		data.longitude = float('inf')
+		normal_data.latitude = float('inf')
+		normal_data.longitude = float('inf')
 	
-	data.status.status =-1
-	return data
+	normal_data.status.status =-1
+	return normal_data
 	
 
 
